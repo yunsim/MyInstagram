@@ -55,6 +55,7 @@ class ViewController: UIViewController {
                         self.createAlert(title: "Sign Up Error", message: displayError)
                     } else {
                         print("user signed up")
+                        self.performSegue(withIdentifier: "showUserTable", sender: self)
                     }
                 })
             } else {
@@ -69,6 +70,7 @@ class ViewController: UIViewController {
                         self.createAlert(title: "Log In Error", message: displayError)
                     } else {
                         print("logged in")
+                        self.performSegue(withIdentifier: "showUserTable", sender: self)
                     }
 
                 })
@@ -93,8 +95,17 @@ class ViewController: UIViewController {
             signupMode = true
         }
     }
+    
     @IBOutlet var changeSignupMode: UIButton!
     @IBOutlet var messageLabel: UILabel!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if PFUser.current() != nil {
+            performSegue(withIdentifier: "showUserTable", sender: self)
+        }
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
