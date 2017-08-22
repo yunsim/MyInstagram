@@ -107,6 +107,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Users" id="LXY-EQ-K3v">
+                        <barButtonItem key="leftBarButtonItem" title="Post" id="3Bb-15-ZtW">
+                            <connections>
+                                <segue destination="csK-gm-Czp" kind="show" id="vk7-wR-uJd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="CLd-xH-9e0">
                             <connections>
                                 <action selector="logout:" destination="HI5-Ov-e7w" id="wZA-id-GlN"/>
@@ -120,6 +125,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Bk-1H-o8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1550" y="136"/>
+        </scene>
+        <!--Post-->
+        <scene sceneID="4bb-bh-peZ">
+            <objects>
+                <viewController title="Post" id="csK-gm-Czp" customClass="PostViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VoP-1m-OjQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="p0A-5Y-JkR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Wq-ap-tI6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person-1824147_960_720.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Fw-7d-CGy">
+                                <rect key="frame" x="67" y="110" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odd-3k-tjc">
+                                <rect key="frame" x="98" y="373" width="178" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose an image"/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="csK-gm-Czp" eventType="touchUpInside" id="aXd-8q-M14"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wI-zY-sSV">
+                                <rect key="frame" x="16" y="423" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmp-X6-xdc">
+                                <rect key="frame" x="131" y="471" width="112" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26813453440000001" green="0.70480149979999995" blue="0.98340815309999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.26813453440000001" green="0.70480149979999995" blue="0.98340815309999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Post Image">
+                                    <color key="titleColor" red="1" green="0.97904352969999997" blue="0.98279566910000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.26813453440000001" green="0.70480149979999995" blue="0.98340815309999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postImage:" destination="csK-gm-Czp" eventType="touchUpInside" id="aK9-Yw-AyL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageToPost" destination="6Fw-7d-CGy" id="Q5j-zw-jNX"/>
+                        <outlet property="messageText" destination="6wI-zY-sSV" id="XcX-H3-JIW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OiC-RW-on5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2549.5999999999999" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VMR-Yd-vif">
@@ -138,4 +199,7 @@
             <point key="canvasLocation" x="716" y="135"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person-1824147_960_720.png" width="691" height="720"/>
+    </resources>
 </document>
